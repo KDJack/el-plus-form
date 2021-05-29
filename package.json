@@ -1,0 +1,81 @@
+{
+  "name": "el-plus-form",
+  "description": "基于 element-plus 的数据驱动表单组件",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build:lib": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.js",
+    "build:docs": "vue-cli-service build",
+    "build": "npm run lint && npm run build:lib && npm run build:docs",
+    "lint": "vue-cli-service --mode production lint lib/*",
+    "release": "standard-version",
+    "pub": "npm run build:lib && npm run release &&  npm publish --registry https://registry.npmjs.org && git push --follow-tags origin master && git push  --follow-tags gitee master"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KDJack/el-plus-form"
+  },
+  "main": "dist/el-plus-form.umd.min.js",
+  "homepage": "https://github.com/KDJack/el-plus-form",
+  "keywords": [
+    "vue-el-form",
+    "vue form",
+    "element form",
+    "element",
+    "element-ui form",
+    "el-form",
+    "element+",
+    "element plus form",
+    "element plus",
+    "element-plus-ui form",
+    "el-plus-form"
+  ],
+  "types": "./types/index.d.ts",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "core-js": "^3.6.5",
+    "element-plus": "^1.0.2-beta.35",
+    "lodash": "^4.17.20",
+    "sortablejs": "^1.13.0",
+    "throttle-debounce": "^3.0.1",
+    "vue": "^3.0.5",
+    "vue-property-decorator": "^9.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@types/lodash": "^4.14.167",
+    "@types/throttle-debounce": "^2.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-cypress": "^2.11.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "json-templater": "^1.2.0",
+    "prettier": "^2.2.1",
+    "ts-node-dev": "^1.0.0",
+    "typescript": "~4.0.3",
+    "vue-class-component": "^7.2.6",
+    "webpack": "^5.38.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    }
+  }
+}
