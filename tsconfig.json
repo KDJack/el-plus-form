@@ -15,14 +15,8 @@
     "baseUrl": ".",
     "types": [
       "node",
-      "webpack-env",
-      "jest"
+      "webpack-env"
     ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    },
     "lib": [
       "esnext",
       "dom",
@@ -31,11 +25,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "lib/*.vue"
   ],
   "exclude": [
     "node_modules"

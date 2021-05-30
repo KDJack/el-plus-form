@@ -88,10 +88,9 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive, computed, watch, nextTick, onMounted, provide, toRefs } from 'vue'
-import waterfall from '@/components/waterfall/index.vue'
+import waterfall from './waterfall.vue'
 import { is, castArray } from './tools/utils'
 import { cloneDeep } from 'lodash'
-import { useRouter } from 'vue-router'
 import * as validates from './tools/validate'
 import { throttle } from 'throttle-debounce'
 import { typeList } from './components/index'
@@ -166,7 +165,6 @@ export default defineComponent({
   },
   setup(props: any, context) {
     // 定义
-    const route = useRouter()
     const refElForm = ref(null) as any
     let formDescData = reactive(cloneDeep(props.formDesc))
     const innerIsLoading = ref(false)
@@ -203,14 +201,8 @@ export default defineComponent({
             attrs: { size: props.size } as any,
             text: props.backBtnText || '返回',
             click: () => {
-              context.emit('back')
-              if (route) {
-                // vue-router
-                route.back()
-              } else {
-                // 浏览器history API
-                history.back()
-              }
+              // 浏览器history API
+              history.back()
             }
           })
         }
@@ -302,7 +294,7 @@ export default defineComponent({
               tempData.push(setFieldHeight(formDescData[field], field))
             } else {
               // throw new Error(field + ': order中定义的key在formDesc中不存在')
-              console.log(field + ': order中定义的key在formDesc中不存在')
+              // console.log(field + ': order中定义的key在formDesc中不存在')
             }
           })
           // 如果key不在order数组的时候，按照原序添加到orderedFormDesc

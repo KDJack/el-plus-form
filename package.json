@@ -6,7 +6,7 @@
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:lib": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.js",
+    "build:lib": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
     "build:docs": "vue-cli-service build",
     "build": "npm run lint && npm run build:lib && npm run build:docs",
     "lint": "vue-cli-service --mode production lint lib/*",
@@ -56,6 +56,7 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "cross-env": "^7.0.3",
     "eslint": "^7.0.0",
