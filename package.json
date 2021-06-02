@@ -1,13 +1,12 @@
 {
   "name": "el-plus-form",
   "description": "基于 element-plus 的数据驱动表单组件",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "license": "MIT",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
-    "prod": "vue-cli-service build  --mode production --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
     "lint": "vue-cli-service lint",
     "release": "standard-version",
     "pub": "npm run build && npm run release &&  npm publish --registry https://registry.npmjs.org && git push --follow-tags origin master && git push  --follow-tags gitee master"
