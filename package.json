@@ -1,17 +1,15 @@
 {
   "name": "el-plus-form",
   "description": "基于 element-plus 的数据驱动表单组件",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build:lib": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
-    "build:docs": "vue-cli-service build",
-    "build": "npm run lint && npm run build:lib && npm run build:docs",
-    "lint": "vue-cli-service --mode production lint lib/*",
-    "release": "standard-version",
-    "pub": "npm run build:lib && npm run release &&  npm publish --registry https://registry.npmjs.org && git push --follow-tags origin master && git push  --follow-tags gitee master"
+    "build": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
+    "prod": "vue-cli-service build  --mode production --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
+    "lint": "vue-cli-service lint",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -32,47 +30,46 @@
     "element-plus-ui form",
     "el-plus-form"
   ],
-  "types": "./types/index.d.ts",
   "dependencies": {
-    "chalk": "^4.1.0",
     "core-js": "^3.6.5",
-    "element-plus": "^1.0.2-beta.35",
-    "lodash": "^4.17.20",
-    "sortablejs": "^1.13.0",
+    "element-plus": "^1.0.2-beta.45",
+    "lodash": "^4.17.21",
     "throttle-debounce": "^3.0.1",
-    "vue": "^3.0.5",
-    "vue-property-decorator": "^9.1.2"
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.3",
-    "@types/lodash": "^4.14.167",
-    "@types/throttle-debounce": "^2.1.0",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
+    "@types/lodash": "^4.14.170",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "@vue/eslint-config-typescript": "^5.0.2",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.2.2",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^8.2.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^7.0.0-0",
-    "json-templater": "^1.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-standard": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^7.0.0",
+    "lint-staged": "^9.5.0",
     "prettier": "^2.2.1",
-    "ts-node-dev": "^1.0.0",
-    "typescript": "~4.0.3",
-    "vue-class-component": "^7.2.6",
-    "webpack": "^5.38.1"
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "standard-version": "^9.3.0",
+    "typescript": "~4.1.5"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "vue-cli-service lint",
+      "git add"
+    ]
   },
   "config": {
     "commitizen": {
