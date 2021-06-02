@@ -1,7 +1,7 @@
 {
   "name": "el-plus-form",
   "description": "基于 element-plus 的数据驱动表单组件",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -9,7 +9,7 @@
     "build": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
     "lint": "vue-cli-service lint",
     "release": "standard-version",
-    "pub": "yarn build && yarn release && yarn publish && git push --follow-tags origin master && git push  --follow-tags gitee master"
+    "pub": "yarn build && yarn release && yarn publish"
   },
   "repository": {
     "type": "git",
