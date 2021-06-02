@@ -1,7 +1,7 @@
 {
   "name": "el-plus-form",
-  "description": "基于 element-plus 的数据驱动表单组件",
-  "version": "0.0.10",
+  "description": "采用Vue3 + TS，封装的element-plus数据驱动表单组件",
+  "version": "0.0.11",
   "license": "MIT",
   "private": false,
   "scripts": {
