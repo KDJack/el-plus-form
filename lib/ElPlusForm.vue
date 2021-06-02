@@ -31,7 +31,7 @@
                 :prop="formItem.field"
               >
                 <component
-                  style="min-width: 80px;"
+                  style="min-width: 80px"
                   :formData="localFormData"
                   :is="formItem._type"
                   :disabled="formItem._disabled || false"
@@ -255,7 +255,7 @@ export default defineComponent({
           if (formDescData[field].rules) {
             if (typeof formDescData[field].rules === 'string') {
               // string的话，就行默认校验规则中取
-              tempRules[field].push(...validates[formDescData[field].rules])
+              tempRules[field].push(...(validates as any)[formDescData[field].rules])
               //  if (field === 'key_1619423491073')
             } else {
               // 查看总体规则中是否已经含有了该属性的校验
@@ -534,7 +534,7 @@ export default defineComponent({
     watch(
       () => props.formDesc,
       (formDesc) => {
-        const oldFormDescData = {}
+        const oldFormDescData = {} as any
         // 去除被删除字段
         Object.keys(formDescData)
           .filter((key) => formDesc[key])

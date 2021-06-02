@@ -3,7 +3,7 @@ import ElPlusForm from './ElPlusForm.vue'
 import ElPlusFormDialog from './ElPlusFormDialog.vue'
 import { components } from './components/index'
 
-const EleFormUI = {
+const ElPlusFormUI = {
   install: (app: App) => {
     components.unshift(ElPlusForm)
     components.unshift(ElPlusFormDialog)
@@ -13,4 +13,4 @@ const EleFormUI = {
   }
 }
 
-export default EleFormUI
+export default ElPlusFormUI

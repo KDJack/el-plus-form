@@ -5,7 +5,7 @@
       :class="desc.class"
       :key="image"
       :preview-src-list="attrs.isShowPreview === false ? null : previewList(image)"
-      :src="imgUrl(image)"
+      :src="image"
       :style="styles"
       v-bind="attrs"
       v-on="onEvents"
@@ -17,7 +17,6 @@
 import { defineComponent, toRefs, reactive, computed } from 'vue'
 import commMixin from '../mixins/commMixin'
 import vueMixin from '../mixins/vueMixin'
-import { imgUrl } from '@/common/format/comm'
 
 export default defineComponent({
   name: 'ElPlusFormImage',
@@ -26,13 +25,12 @@ export default defineComponent({
   mixins: [vueMixin],
   setup(props, ctx) {
     const state = reactive({
-      imgUrl,
       ...commMixin(props, ctx),
       previewList: (image: any) => {
         if (Array.isArray(state.currentValue)) {
           const list = state.currentValue.filter((item: any) => item !== image)
           list.unshift(image)
-          return list.map((item) => imgUrl(item))
+          return list
         } else {
           return []
         }

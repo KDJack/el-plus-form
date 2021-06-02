@@ -45,7 +45,7 @@ export default defineComponent({
         return Object.assign({}, ctx.attrs, props.desc, props.desc?._attrs)
       }),
       onEvents: computed(() => {
-        const events = {}
+        const events = {} as any
         if (props.desc && props.desc.on) {
           for (const key in props.desc.on) {
             events[key] = function () {

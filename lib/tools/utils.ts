@@ -154,83 +154,18 @@ export function isEmpty(val: any) {
   }
 }
 
-// 根据类型获取初始值
-export function handelValueData(value: any, type: string, _default: any): any {
-  let tempValue = null
-  if (value !== undefined && value !== null && value !== '') {
-    tempValue = value
-  } else if (_default !== undefined && _default !== null) {
-    tempValue = _default
+/**
+ * 获取随机字符串
+ * @returns {string}
+ */
+ export function getUID(): string {
+  let str = ''
+  const arr = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+  for (let i = 0; i < 32; i++) {
+    let index = Math.floor(arr.length * Math.random())
+    if (index < 0) index = 0
+    str += arr[index]
   }
-  if (type) {
-    // 输入类
-    switch (type) {
-      case 'input':
-      case 'nbInput':
-      case 'password':
-        tempValue = castString(tempValue) || ''
-        break
-      case 'switch':
-      case 'yesno':
-        tempValue = castBoolean(tempValue) || false
-        break
-      case 'cascader':
-      case 'checkbox':
-      case 'checkbox-button':
-      case 'image':
-      case 'transfer':
-        tempValue = castArray(tempValue) || []
-        break
-      case 'number':
-      case 'status':
-        tempValue = castNumber(tempValue) || 0
-        break
-      case 'upImg':
-        tempValue = castFileList(tempValue)
-        break
-    }
-  }
-  return tempValue
+  return str
 }
-// 根据类型获取属性 placeholder
-export function getPlaceholder(type: string, label?: string, placeholder?: string) {
-  if (!type) return ''
-  switch (type) {
-    case 'input':
-    case 'nbInput':
-    case 'autocomplete':
-    case 'password':
-    case 'tag':
-      return { placeholder: '请输入' + (label || placeholder) }
-    case 'switch':
-      return {}
-    case 'select':
-    case 'cascader':
-      return { placeholder: '请选择' + (label || placeholder) }
-    case 'data':
-    case 'datetime':
-    case 'datas':
-      return { placeholder: '选择日期' }
-    case 'daterange':
-    case 'datetimerange':
-    case 'timerange':
-    case 'monthrange':
-      return {
-        startPlaceholder: '开始日期',
-        endPlaceholder: '结束日期'
-      }
-    case 'dates':
-      return { placeholder: '选择一个或多个日期' }
-    case 'month':
-      return { placeholder: '选择月' }
-    case 'time':
-    case 'timsPicker':
-      return { placeholder: '请选择时间' }
-    case 'week':
-      return { placeholder: '请选择周' }
-    case 'year':
-      return { placeholder: '请选择年' }
-    case 'upImg':
-      return { placeholder: '请上传' }
-  }
-}
+

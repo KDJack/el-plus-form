@@ -12,7 +12,6 @@
 </template>
 <script>
 import { defineComponent, reactive, toRefs, computed, watch, onMounted } from 'vue'
-import { isArray } from '@/common/utils'
 
 export default defineComponent({
   props: {
@@ -67,7 +66,7 @@ export default defineComponent({
     // 获取count
     const getItemCount = (item) => {
       if (item[props.columnKey]) {
-        if (isArray(item[props.columnKey])) {
+        if (Array.isArray(item[props.columnKey])) {
           return item[props.columnKey].length
         } else {
           return item[props.columnKey] * 1

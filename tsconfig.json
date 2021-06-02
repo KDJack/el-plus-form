@@ -10,13 +10,16 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "suppressImplicitAnyIndexErrors": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "node",
       "webpack-env"
     ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     "lib": [
       "esnext",
       "dom",
@@ -25,6 +28,12 @@
     ]
   },
   "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "lib/**/*.ts",
+    "lib/**/*.vue",
+    "lib/*.ts",
     "lib/*.vue"
   ],
   "exclude": [

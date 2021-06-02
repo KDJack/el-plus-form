@@ -2,6 +2,7 @@
   <el-switch
     :class="desc.class"
     :style="desc.style"
+    style="width: 100%;"
     v-bind="attrs"
     :active-value="1"
     :inactive-value="0"

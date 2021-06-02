@@ -2,6 +2,7 @@
   <div class="ele-form-upload-image">
     <el-upload
       :list-type="listType"
+      style="display: flex"
       :accept="accepts.join(',')"
       :limit="getLimit"
       :fileList="fileList"
@@ -53,9 +54,7 @@ import { defineComponent, toRefs, reactive, computed, getCurrentInstance } from 
 import commMixin from '../mixins/commMixin'
 import vueMixin from '../mixins/vueMixin'
 // 引入文件校验
-import config from '@/config'
-import { getUID } from '@/common/utils'
-// import { imgUrl } from '@/common/format/comm'
+import { getUID } from '../tools/utils'
 
 export default defineComponent({
   name: 'ElPlusFormUpimg',
@@ -75,8 +74,9 @@ export default defineComponent({
   },
   setup(props, context) {
     const { ctx } = getCurrentInstance() as any
+    const uploadImgBaseUrl = ''
     const state = reactive({
-      ...commMixin(props, context, { action: config.uploadImgBaseUrl, data: { filePath: props.filePath }, name: props.name }),
+      ...commMixin(props, context, { action: uploadImgBaseUrl, data: { filePath: props.filePath }, name: props.name }),
       fileList: [],
       fileList__: [],
       isStartUpload: false,
