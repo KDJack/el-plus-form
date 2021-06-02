@@ -74,9 +74,8 @@ export default defineComponent({
   },
   setup(props, context) {
     const { ctx } = getCurrentInstance() as any
-    const uploadImgBaseUrl = ''
     const state = reactive({
-      ...commMixin(props, context, { action: uploadImgBaseUrl, data: { filePath: props.filePath }, name: props.name }),
+      ...commMixin(props, context, { action: ctx.uploadImgAction || '', data: { filePath: props.filePath }, name: props.name }),
       fileList: [],
       fileList__: [],
       isStartUpload: false,

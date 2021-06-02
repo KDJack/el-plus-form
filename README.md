@@ -27,8 +27,8 @@ npm install el-plus-form --save # yarn add el-plus-form
 
 ```js
 import ElPlusForm from 'el-plus-form'
-
-Vue.use(ElPlusForm)
+// uploadImgAction 为图片上传的请求地址，如果没有该配置项，会导致图片上传组件不可用！！！
+Vue.use(ElPlusForm, { uploadImgAction: 'http://www.xxxxx/xxx/xxx/xx/uplaod' })
 ```
 
 ## \*使用说明
