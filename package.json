@@ -1,7 +1,7 @@
 {
   "name": "el-plus-form",
   "description": "基于 element-plus 的数据驱动表单组件",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "license": "MIT",
   "private": false,
   "scripts": {
