@@ -158,7 +158,7 @@ export function isEmpty(val: any) {
  * 获取随机字符串
  * @returns {string}
  */
- export function getUID(): string {
+export function getUID(): string {
   let str = ''
   const arr = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
   for (let i = 0; i < 32; i++) {
@@ -169,3 +169,41 @@ export function isEmpty(val: any) {
   return str
 }
 
+// 根据类型获取初始值
+export function handelValueData(type: String, value: any, defVal?: any): any {
+  let tempValue = null
+  if (value !== undefined && value !== null && value !== '') {
+    tempValue = value
+  } else if (defVal !== undefined && defVal !== null) {
+    tempValue = defVal
+  }
+  if (type) {
+    // 输入类
+    switch (type) {
+      case 'input':
+      case 'nbInput':
+      case 'password':
+        tempValue = castString(tempValue) || ''
+        break
+      case 'yesno':
+        tempValue = castBoolean(tempValue) || false
+        break
+      case 'cascader':
+      case 'checkbox':
+      case 'checkbox-button':
+      case 'image':
+      case 'transfer':
+        tempValue = castArray(tempValue) || []
+        break
+      case 'number':
+      case 'status':
+      case 'switch':
+        tempValue = castNumber(tempValue) || 0
+        break
+      case 'upImg':
+        tempValue = castFileList(tempValue)
+        break
+    }
+  }
+  return tempValue
+}

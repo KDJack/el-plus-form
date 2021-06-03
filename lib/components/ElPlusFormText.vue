@@ -3,28 +3,42 @@
     class="ele-form-text"
     :class="desc.class"
     :style="desc.style"
-    v-bind="attrs"
-    v-on="onEvents"
+    v-bind="$attrs"
+    v-on="desc.on || {}"
   >
-    <template v-if="slots && slots.default">
-      <slot :render="slots.default" />
+    <template v-if="desc.slots && desc.slots.default">
+      <slot :render="desc.slots.default" />
     </template>
-    {{ attrs.formatedValue || currentValue }}
+    {{ $attrs.formatedValue || currentValue }}
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive } from 'vue'
-import commMixin from '../mixins/commMixin'
-import vueMixin from '../mixins/vueMixin'
+import { defineComponent, computed, toRefs, reactive } from 'vue'
+import { handelValueData } from '../tools/utils'
 
 export default defineComponent({
   name: 'ElPlusFormText',
   typeName: 'text',
   inheritAttrs: false,
-  mixins: [vueMixin],
-  setup(props, ctx) {
-    return { ...toRefs(reactive(commMixin(props, ctx))) }
+  props: {
+    value: {},
+    field: { type: String, require: true, default: '' },
+    desc: {
+      type: Object,
+      default: () => {
+        return {}
+      }
+    },
+    formData: { type: Object, default: null }
+  },
+  setup(props) {
+    const state = reactive({
+      currentValue: computed(() => {
+        return handelValueData(props.desc.type, props.value, props.desc.default)
+      })
+    })
+    return { ...toRefs(state) }
   }
 })
 </script>

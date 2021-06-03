@@ -41,7 +41,7 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, reactive, toRefs, computed, onMounted } from 'vue'
+import { defineComponent, reactive, toRefs, computed, onMounted, inject } from 'vue'
 import commMixin from '../mixins/commMixin'
 import ElPlusFormBtn from './ElPlusFormBtn.vue'
 
@@ -54,7 +54,7 @@ export default defineComponent({
     formData: { type: Object, default: null }
   },
   setup(props, ctx) {
-    const refs = reactive(commMixin(props, ctx))
+    const refs = reactive(commMixin(props, ctx, inject))
     const state = reactive({
       localBtnList: [] as any[],
       limitList: [] as any[],

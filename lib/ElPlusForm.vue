@@ -43,6 +43,7 @@
                   :field="formItem.field"
                   :size="formItem.size || size"
                   :value="localFormData[formItem.field]"
+                  :isTable="isTable"
                 />
                 <div
                   class="el-plus-form-tip"
@@ -160,7 +161,9 @@ export default defineComponent({
     isShowErrorNotify: { type: Boolean, default: true },
     // 其他钩子 直接放到attrs里面去了
     // 表单列 默认1
-    column: { type: Number, default: 1 }
+    column: { type: Number, default: 1 },
+    //  是否是列表头部的表单-这里主要是provide changeValue
+    isTable: { type: Boolean, default: false }
     // 比如 beforeValidate, beforeRequest, requestSuccess, requestError, requestEnd
   },
   setup(props: any, context) {

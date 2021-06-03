@@ -50,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive, computed, getCurrentInstance } from 'vue'
+import { defineComponent, toRefs, reactive, computed, getCurrentInstance, inject } from 'vue'
 import commMixin from '../mixins/commMixin'
 import vueMixin from '../mixins/vueMixin'
 // 引入文件校验
@@ -75,7 +75,7 @@ export default defineComponent({
   setup(props, context) {
     const { ctx } = getCurrentInstance() as any
     const state = reactive({
-      ...commMixin(props, context, { action: ctx.uploadImgAction || '', data: { filePath: props.filePath }, name: props.name }),
+      ...commMixin(props, context, inject, { action: ctx.uploadImgAction || '', data: { filePath: props.filePath }, name: props.name }),
       fileList: [],
       fileList__: [],
       isStartUpload: false,

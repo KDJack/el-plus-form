@@ -1,4 +1,4 @@
-import { inject, computed } from 'vue'
+import { computed } from 'vue'
 import { cloneDeep } from 'lodash'
 import { castArray, castString, castBoolean, castNumber, castFileList } from '../tools/utils'
 
@@ -8,8 +8,8 @@ import { castArray, castString, castBoolean, castNumber, castFileList } from '..
  * @param ctx
  * @returns
  */
-export default function (props: any, ctx: any, customAttrs?: Object) {
-  const changeValueFn = inject('changeValueFn') as Function
+export default function (props: any, ctx: any, inject: any, customAttrs?: Object) {
+  const changeValueFn = (ctx.attrs.isTable ? {} : inject('changeValueFn')) as Function
 
   // 定义组件的双弓绑定
   const currentValue = computed({

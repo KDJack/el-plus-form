@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive, computed } from 'vue'
+import { defineComponent, toRefs, reactive, computed, inject } from 'vue'
 import commMixin from '../mixins/commMixin'
 import vueMixin from '../mixins/vueMixin'
 
@@ -40,7 +40,7 @@ export default defineComponent({
   mixins: [vueMixin],
   setup(props, ctx) {
     const state = reactive({
-      ...commMixin(props, ctx),
+      ...commMixin(props, ctx, inject),
       loading: false,
       remoteMethod: computed(() => {
         return ctx.attrs['remote-method'] || ctx.attrs.remoteMethod

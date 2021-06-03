@@ -9,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, toRefs, reactive } from 'vue'
+import { defineComponent, toRefs, reactive, inject } from 'vue'
 import commMixin from '../mixins/commMixin'
 import vueMixin from '../mixins/vueMixin'
 
@@ -22,7 +22,7 @@ export default defineComponent({
     return {
       ...toRefs(
         reactive(
-          commMixin(props, ctx, {
+          commMixin(props, ctx, inject, {
             props: {
               value: 'value',
               label: 'label',

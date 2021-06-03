@@ -63,7 +63,17 @@ setup() {
 }
 ```
 
+## DEMO(暂时没有时间搞，借用下张大佬的)
+
+https://dream2023.github.io/vue-ele-form/
+
+## 文档(暂时没有时间搞，借用下张大佬的)
+
+https://www.yuque.com/chaojie-vjiel/vbwzgu
+
 ## \*使用说明
+
+\*请将项目 VUE 版本更改至 3.0.5，不然会出现[神奇的问题](https://github.com/vuejs/vue-next/issues/2913)
 
 当前版本还处于开发中，版本还不稳定，偶尔会更新。建议等到 1.x 版本后再使用...
 
