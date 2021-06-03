@@ -15,9 +15,6 @@ module.exports = {
       alias: {
         'el-plus-form': path.resolve(__dirname, './lib')
       }
-    },
-    externals: {
-      // 'element-plus': 'element-plus'
     }
   }
 }
