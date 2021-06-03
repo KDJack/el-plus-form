@@ -1,7 +1,7 @@
 {
   "name": "el-plus-form",
   "description": "采用Vue3 + TS，封装的element-plus数据驱动表单组件",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "license": "MIT",
   "private": false,
   "scripts": {
@@ -39,7 +39,7 @@
     "json-templater": "^1.2.0",
     "lodash": "^4.17.21",
     "throttle-debounce": "^3.0.1",
-    "vue": "^3.0.0",
+    "vue": "3.0.5",
     "vue-class-component": "^8.0.0-0"
   },
   "devDependencies": {
