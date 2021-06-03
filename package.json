@@ -1,13 +1,12 @@
 {
   "name": "el-plus-form",
   "description": "采用Vue3 + TS，封装的element-plus数据驱动表单组件",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "license": "MIT",
   "private": false,
   "scripts": {
-    "build:entry": "node build/build-entry.js",
-    "serve": "yarn build:entry && vue-cli-service serve",
-    "build": "yarn build:entry && vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --target lib --name el-plus-form --dest ./dist/ ./lib/index.ts",
     "lint": "vue-cli-service lint",
     "release": "standard-version",
     "pub": "yarn build && yarn release && yarn publish"
